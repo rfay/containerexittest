@@ -14,6 +14,8 @@ This repo exists just to demonstrate a bug in docker-for-windows and docker-for-
 
 On Docker for Windows or Docker for Mac, with the container running, exit docker. You'll see no catch, the container is just terminated. To make sure, you can restart docker and then issue `docker logs` on the stopped container. No signal-catch behavior is demonstrated.
 
+Note that on *Linux* with docker-ce a `sudo service stop docker` behaves correctly and terminates containers.
+
 **Why does this matter?**
 
 Any container that deals in persistent data is going to have horrible trouble as a result. Docker needs to terminate containers and not just die.
